@@ -1,0 +1,29 @@
+Ordine configurazione Tailwind .
+1)	Npx create-react-app MiaApp
+2)	Cd MiaApp
+3)	Npm install autoprefixer tailwindcss postcss-import postcss-cli (--save-dev opzionale)
+4)	Npx tailwind init (inizializza la configurazione di tailwind) 
+5)	Configurare un file postcss.config.js
+Const postcssImport = require(“postcss-import”);
+Const autoprefixer= require(“autoprefixer”);
+Const tailwindcss=require(“tailwindcss”);
+Module.export= { plugins: [ 
+ 			postcssImport,
+tailwindcss,
+autoprefixer
+                                   ] }
+6)	Dentro src creare cartella styles e dentro mettere main.css , cancellare tutti i file a parte Index.js
+7)	In main.css dentro styles inserire
+a.	@import “tailwindcss/base”;
+b.	@import “tailwindcss/components”;
+c.	@import “tailwindcss/utilities”;
+
+Nota: Tutto il CSS che mettiamo dentro la cartella styles non è ancora utilizzabile, devono essere configurati dal postcss, tailwind etc.
+
+8)	Dentro il package.json inserire negli scripts:  “build:css”: “postcss src/styles/main.css --output src/main.css“ 
+9)	Ora se si esegue npm run build:css
+
+10)	importare react e ReactDOM in index.js 
+
+ReactDOM.render( <miaApp/> , document.getElementById(‘root’));
+11)	Si crea un js MiaApplicazione.js
